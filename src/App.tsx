@@ -6,40 +6,84 @@ import {Footer} from './site/Footer'
 import {MouseEvent} from 'react';
 import {Button} from './components/Button';
 import {FullInput} from './components/FullInput';
+import {NewComponent} from './components/NewComponentMap';
 
+function App() {
+    let [a, setA]=useState(1)
 
-    function App() {
-    const [message, setMessage] = useState([
-            {message: 'message1'},
-            {message: 'message2'},
-            {message: 'message3'},
-            {message: 'message4'},
-            {message: 'message5'}
-        ]
-    )
+    const onClickHandler=()=>{
+        setA(++a)
 
-        const addMessages=(title:string)=>{
-        let newMessages={message: title};
-            setMessage([newMessages,...message])
-        }
+    }
+    const onClickRemove =() => {
+        setA(0)
+    }
+return (
+    <div className='App'>
+        <h1>{a}</h1>
+        <button onClick={onClickHandler}>Click</button>
+        <button onClick={onClickRemove}>Remove</button>
 
-    return (
-        <div className="App">
-            {/*<div>*/}
-            {/*    <input />*/}
-            {/*    <button>+</button>*/}
-            {/*</div>*/}
-            <FullInput addMessages={addMessages}/>
-            {message.map((el, index) => {
-                return (
-                    <div key={index}>{el.message}</div>
-                )
-            })}
-        </div>
-    );
+    </div>
+)
 }
 
 export default App;
+// function App() {
+//     const [students, setStudents] = useState([
+//             {id: 1, name: "James", age: 8},
+//             {id: 2, name: "Robert", age: 18},
+//             {id: 3, name: "John", age: 28},
+//             {id: 4, name: "Michael", age: 38},
+//             {id: 5, name: "William", age: 48},
+//             {id: 6, name: "David", age: 58},
+//             {id: 7, name: "Richard", age: 68},
+//             {id: 8, name: "Joseph", age: 78},
+//             {id: 9, name: "Thomas", age: 88},
+//             {id: 10, name: "Charles", age: 98},
+//             {id: 11, name: "Christopher", age: 100},
+//         ]
+//     )
+//     return (
+//         <NewComponent students={students}/>
+//     );
+// }
+//
+// export default App;
+//     function App() {
+//     const [message, setMessage] = useState([
+//             {message: 'message1'},
+//             {message: 'message2'},
+//             {message: 'message3'},
+//             {message: 'message4'},
+//             {message: 'message5'}
+//         ]
+//     )
+//
+//         const addMessages=(title:string)=>{
+//         let newMessages={message: title};
+//             setMessage([newMessages,...message])
+//         }
+//
+//     return (
+//         <div className="App">
+//             {/*<div>*/}
+//             {/*    <input />*/}
+//             {/*    <button>+</button>*/}
+//             {/*</div>*/}
+//             <FullInput addMessages={addMessages}/>
+//             {message.map((el, index) => {
+//                 return (
+//                     <div key={index}>{el.message}</div>
+//                 )
+//             })}
+//         </div>
+//     );
+// }
+//
+// export default App;
+//
+
 // function App() {
     // const myFirstSubscruber = (event:MouseEvent<HTMLButtonElement>) => {
     //     console.log('Hello Dmitry')
@@ -58,13 +102,8 @@ export default App;
 // }
 //     const Button2Foo =(subscruber:string) => {
 //         console.log(subscruber)
-//
 //     }
-//
 //     return (
-//
-//
-//
 //         <div>
 //             <Header titleForHeader={'NEW BODY'}/>
 //             <Body titleForBody={'NEW BODY'}/>
